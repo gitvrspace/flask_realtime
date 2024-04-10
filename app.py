@@ -49,7 +49,3 @@ def telegram():
     return json.dumps({'success':True})
 
 
-schedule.every(1).hours.do(send_links)
-while True:
-  schedule.run_pending()
-  time.sleep(1)
