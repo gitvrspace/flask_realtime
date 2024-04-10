@@ -45,11 +45,6 @@ def  send_links():
 
 @app.route('/6876786031:AAHPnC8_plNa-58NlyMzYy_qhU1nVHaCCxo', methods=['POST','GET'])
 def telegram():
-    data = request.get_json()
-    #print (data)
-    #chat_id = data['message']['chat']['id']
-    #text = data['message']['text']
-    #sendMessage(chat_id, text)
     send_links()
     return json.dumps({'success':True})
 
