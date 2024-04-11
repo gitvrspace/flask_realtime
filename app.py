@@ -50,5 +50,5 @@ def telegram():
     return json.dumps({'success':True})
 
 schedule = BackgroundScheduler(daemon=True, timezone='Asia/Seoul') 
-schedule.add_job(send_links, 'interval', seconds=30) 
+schedule.add_job(send_links, 'interval', seconds=1800) 
 schedule.start()
