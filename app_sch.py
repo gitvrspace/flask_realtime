@@ -4,9 +4,8 @@ import urllib.parse as parse
 import urllib.request as req
 import  requests
 from  bs4  import  BeautifulSoup  as  bs
-#import schedule
+import schedule
 import time
-from apscheduler.schedulers.background import BackgroundScheduler
 
 old_links  = []
 app = Flask(__name__)
@@ -49,6 +48,8 @@ def telegram():
     send_links()
     return json.dumps({'success':True})
 
-schedule = BackgroundScheduler(daemon=True, timezone='Asia/Seoul') 
-schedule.add_job(send_links, 'interval', seconds=30) 
-schedule.start()
+
+schedule.every(1).hours.do(send_links)
+while True:
+  schedule.run_pending()
+  time.sleep(1)
